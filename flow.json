@@ -366,7 +366,7 @@
         "type": "debug",
         "z": "ed1d661b3babdc86",
         "name": "radio debug",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
