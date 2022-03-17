@@ -930,8 +930,7 @@
         "y": 220,
         "wires": [
             [
-                "54461634df7d978e",
-                "58b71592c7c82fdb"
+                "54461634df7d978e"
             ]
         ]
     },
@@ -967,8 +966,8 @@
         "type": "sqlite",
         "z": "ea258bde43a2148d",
         "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "msg.topic",
-        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES (\"'\" + payload.dynamicresults.timestamp +\"'\");",
+        "sqlquery": "fixed",
+        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES (${payload.dynamicresults.timestamp},${payload.dynamicresults.qsos},${payload.dynamicresults.score},${payload.dynamicresults.call});",
         "name": "scores to db",
         "x": 430,
         "y": 220,
