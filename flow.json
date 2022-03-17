@@ -494,7 +494,7 @@
         "height": 0,
         "columns": [
             {
-                "field": "payload.RadioInfo.StationName",
+                "field": "msg.payload",
                 "title": "Station",
                 "width": "",
                 "align": "left",
