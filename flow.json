@@ -1,5 +1,13 @@
 [
     {
+        "id": "582dd60c61740b29",
+        "type": "tab",
+        "label": "Create DB",
+        "disabled": false,
+        "info": "Create database, add tables and indexs. ",
+        "env": []
+    },
+    {
         "id": "ed1d661b3babdc86",
         "type": "tab",
         "label": "DB Ingest",
@@ -11,14 +19,6 @@
         "id": "9688e29600bc170f",
         "type": "tab",
         "label": "Score report",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "582dd60c61740b29",
-        "type": "tab",
-        "label": "Station report",
         "disabled": false,
         "info": "",
         "env": []
@@ -167,6 +167,170 @@
         "statusType": "auto",
         "x": 720,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cba81b64914b58c1",
+        "type": "udp in",
+        "z": "ed1d661b3babdc86",
+        "name": "",
+        "iface": "",
+        "port": "12060",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "1aea26f8b3c65e17",
+                "8b8b482f966a4649"
+            ]
+        ]
+    },
+    {
+        "id": "e04651e0def67c26",
+        "type": "comment",
+        "z": "ed1d661b3babdc86",
+        "name": "Data ingestion",
+        "info": "Receiving UDP data from N1MM on port 12060\n\nOnly concerned with scores, contacts and radio info (No DB storage)\n",
+        "x": 110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1aea26f8b3c65e17",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "RX 12060 debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 130,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8b8b482f966a4649",
+        "type": "switch",
+        "z": "ed1d661b3babdc86",
+        "name": "Switch to record type",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "msg.payload.contactinfo",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "msg.payload.contactupdate",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "msg.payload.contactdelete",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "msg.payload.dynamicresults.score",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "4120bd0cd20f1c8c"
+            ],
+            [
+                "126567804723c07f"
+            ],
+            [
+                "5d56874727c814cc"
+            ],
+            [
+                "c1e338a7f8ef27a4"
+            ]
+        ]
+    },
+    {
+        "id": "4120bd0cd20f1c8c",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "contactinfo debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "126567804723c07f",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "contactupdate debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5d56874727c814cc",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "contactdelete debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c1e338a7f8ef27a4",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "scores debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
         "wires": []
     }
 ]
