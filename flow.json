@@ -926,12 +926,12 @@
         "links": [
             "4eed1cab13a64733"
         ],
-        "x": 145,
+        "x": 155,
         "y": 220,
         "wires": [
             [
                 "54461634df7d978e",
-                "58b71592c7c82fdb"
+                "5aa68c2122479616"
             ]
         ]
     },
@@ -958,8 +958,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 300,
-        "y": 300,
+        "x": 360,
+        "y": 420,
         "wires": []
     },
     {
@@ -967,7 +967,7 @@
         "type": "sqlite",
         "z": "ea258bde43a2148d",
         "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
+        "sqlquery": "msg.topic",
         "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES ('${payload.dynamicresults.timestamp}',\"${payload.dynamicresults.qsos}\",\"${payload.dynamicresults.score}\",\"${payload.dynamicresults.call}\");",
         "name": "scores to db",
         "x": 430,
@@ -994,5 +994,24 @@
         "x": 650,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "5aa68c2122479616",
+        "type": "template",
+        "z": "ea258bde43a2148d",
+        "name": "",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO scores (\n    timestamp,\n    qsos,\n    score,\n    call\n)\nVALUES (\n    {{payload.dynamicresults.timestamp}},\n    {{payload.dynamicresults.breakdown.qso[1].$t}},\n    {{payload.dynamicresults.score}},\n    {{payload.dynamicresults.call}}\n);",
+        "output": "str",
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "58b71592c7c82fdb"
+            ]
+        ]
     }
 ]
