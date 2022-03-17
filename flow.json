@@ -198,7 +198,7 @@
         "ipv": "udp4",
         "multicast": "false",
         "group": "",
-        "datatype": "utf8",
+        "datatype": "buffer",
         "x": 100,
         "y": 180,
         "wires": [
@@ -456,7 +456,8 @@
         "y": 120,
         "wires": [
             [
-                "8b8b482f966a4649"
+                "8b8b482f966a4649",
+                "b855aef7f8e6ec11"
             ]
         ]
     },
