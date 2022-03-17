@@ -262,7 +262,8 @@
         "y": 180,
         "wires": [
             [
-                "9d1a9e7630368717"
+                "9d1a9e7630368717",
+                "eb360245088d2e25"
             ]
         ]
     },
@@ -297,6 +298,39 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eb360245088d2e25",
+        "type": "sqlite",
+        "z": "582dd60c61740b29",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE IF NOT EXISTS radios (\n\"RadioName\" TEXT,\n\"StationName\" TEXT,\n\"Freq\" TEXT,\n\"Mode\" TEXT,\n\"OpCall\" TEXT,\n\"isRunning\" INT\n);",
+        "name": "Add radio table",
+        "x": 1340,
+        "y": 180,
+        "wires": [
+            [
+                "f3606256200e6bf6"
+            ]
+        ]
+    },
+    {
+        "id": "f3606256200e6bf6",
+        "type": "debug",
+        "z": "582dd60c61740b29",
+        "name": "Add radios table debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
         "y": 260,
         "wires": []
     },
