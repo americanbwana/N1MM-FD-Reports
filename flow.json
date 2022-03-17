@@ -478,77 +478,9 @@
         "y": 120,
         "wires": [
             [
-                "0e8734251e109b7c",
-                "bd65706de28ae82b"
+                "0e8734251e109b7c"
             ]
         ]
-    },
-    {
-        "id": "bd65706de28ae82b",
-        "type": "ui_table",
-        "z": "9688e29600bc170f",
-        "group": "6e27ac53741afeb6",
-        "name": "RadioInfo",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "columns": [
-            {
-                "field": "msg.payload",
-                "title": "Station",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "Freq",
-                "title": "Freq",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "Mode",
-                "title": "Mode",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "RadioName",
-                "title": "",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "IsRunning",
-                "title": "",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            }
-        ],
-        "outputs": 0,
-        "cts": false,
-        "x": 400,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "0e8734251e109b7c",
@@ -565,6 +497,23 @@
         "statusType": "auto",
         "x": 320,
         "y": 240,
+        "wires": []
+    },
+    {
+        "id": "295143c0d3e965b8",
+        "type": "ui_text",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "StationName",
+        "label": "text",
+        "format": "{{msg.payload.StationName}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 430,
+        "y": 120,
         "wires": []
     }
 ]
