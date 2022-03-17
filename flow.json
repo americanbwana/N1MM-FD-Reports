@@ -98,7 +98,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
+        "x": 1010,
         "y": 260,
         "wires": []
     },
@@ -108,14 +108,14 @@
         "z": "582dd60c61740b29",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE IF NOT EXISTS scores (\n\"timestamp\" TEXT,\n\"qsos\" TEXT,\n\"score\" TEXT,\n\"call\" TEXT );\n\n",
+        "sql": "CREATE TABLE IF NOT EXISTS scores (\n    \"timestamp\" TEXT,\n    \"qsos\" TEXT,\n    \"score\" TEXT,\n    \"call\" TEXT \n);\n",
         "name": "Add scores table",
         "x": 430,
         "y": 180,
         "wires": [
             [
                 "faae901da8dfee3a",
-                "ea5cbb93f055ae3d"
+                "65a0c6662a73a060"
             ]
         ]
     },
@@ -127,12 +127,46 @@
         "sqlquery": "fixed",
         "sql": "CREATE TABLE IF NOT EXISTS contacts (\n    \"timestamp\" TEXT,\n    \"mycall\" TEXT,\n    \"band\" TEXT,\n    \"mode\" TEXT,\n    \"operator\" TEXT,\n    \"call\" TEXT,\n    \"StationName\" TEXT,\n    \"ID\" TEXT\n);",
         "name": "Add contacts table",
-        "x": 710,
+        "x": 1010,
         "y": 180,
         "wires": [
             [
                 "9d1a9e7630368717"
             ]
         ]
+    },
+    {
+        "id": "65a0c6662a73a060",
+        "type": "sqlite",
+        "z": "582dd60c61740b29",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE INDEX IF NOT EXISTS call_idx on scores(call);",
+        "name": "Add scores IDX",
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "ea5cbb93f055ae3d",
+                "bfa8471700d1856c"
+            ]
+        ]
+    },
+    {
+        "id": "bfa8471700d1856c",
+        "type": "debug",
+        "z": "582dd60c61740b29",
+        "name": "Add IDX debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 260,
+        "wires": []
     }
 ]
