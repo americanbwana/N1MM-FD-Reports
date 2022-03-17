@@ -486,8 +486,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 320,
-        "y": 160,
+        "x": 360,
+        "y": 260,
         "wires": [
             [
                 "8b8b482f966a4649"
