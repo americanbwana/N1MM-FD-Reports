@@ -556,7 +556,7 @@
         "height": 0,
         "name": "StationName",
         "label": "text",
-        "format": "{{msg.payload.RadioInfo}}",
+        "format": "{{msg.payload.RadioInfo.StationName}}",
         "layout": "row-left",
         "className": "",
         "x": 430,
