@@ -265,7 +265,7 @@
             },
             {
                 "t": "eq",
-                "v": "RadioInfo",
+                "v": "payload.RadioInfo",
                 "vt": "msg"
             }
         ],
