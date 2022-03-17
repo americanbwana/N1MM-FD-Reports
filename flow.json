@@ -970,8 +970,8 @@
         "sqlquery": "msg.topic",
         "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES ('${payload.dynamicresults.timestamp}',\"${payload.dynamicresults.qsos}\",\"${payload.dynamicresults.score}\",\"${payload.dynamicresults.call}\");",
         "name": "scores to db",
-        "x": 430,
-        "y": 220,
+        "x": 490,
+        "y": 240,
         "wires": [
             [
                 "ef77361738d9519b"
@@ -991,8 +991,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 180,
+        "x": 790,
+        "y": 140,
         "wires": []
     },
     {
@@ -1010,8 +1010,25 @@
         "y": 200,
         "wires": [
             [
-                "58b71592c7c82fdb"
+                "58b71592c7c82fdb",
+                "82b03fcc5c3a477d"
             ]
         ]
+    },
+    {
+        "id": "82b03fcc5c3a477d",
+        "type": "debug",
+        "z": "ea258bde43a2148d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 140,
+        "wires": []
     }
 ]
