@@ -559,7 +559,7 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "payload.RadioInfo",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
