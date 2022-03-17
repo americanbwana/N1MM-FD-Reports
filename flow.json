@@ -143,7 +143,7 @@
         "z": "582dd60c61740b29",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE IF NOT EXISTS scores (\n\"timestamp\" TEXT,\n\"qsos\" TEXT,\n\"score\" TEXT,\n\"call\" TEXT );\n\nCREATE INDEX IF NOT EXISTS call_idx on scores(call);",
+        "sql": "CREATE TABLE IF NOT EXISTS scores (\n\"timestamp\" TEXT,\n\"qsos\" TEXT,\n\"score\" TEXT,\n\"call\" TEXT );\n\n",
         "name": "Add scores table",
         "x": 650,
         "y": 180,
