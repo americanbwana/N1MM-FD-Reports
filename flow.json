@@ -243,11 +243,16 @@
                 "t": "eq",
                 "v": "msg.payload.dynamicresults.score",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "msg.payload.RadioInfo",
+                "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 4,
+        "outputs": 5,
         "x": 400,
         "y": 180,
         "wires": [
@@ -262,6 +267,9 @@
             ],
             [
                 "c1e338a7f8ef27a4"
+            ],
+            [
+                "9ae9362fd6aa9c41"
             ]
         ]
     },
@@ -331,6 +339,23 @@
         "statusType": "auto",
         "x": 660,
         "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9ae9362fd6aa9c41",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "radio debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 420,
         "wires": []
     }
 ]
