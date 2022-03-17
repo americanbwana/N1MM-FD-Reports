@@ -24,6 +24,22 @@
         "env": []
     },
     {
+        "id": "57fa87e81c6b7466",
+        "type": "tab",
+        "label": "Manage contacts table",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea258bde43a2148d",
+        "type": "tab",
+        "label": "Manage score table",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8c6c30ddd10c4e52",
         "type": "sqlitedb",
         "db": "data.db",
@@ -276,20 +292,24 @@
         "y": 180,
         "wires": [
             [
-                "4120bd0cd20f1c8c"
+                "4120bd0cd20f1c8c",
+                "945feba65cc68c02"
             ],
             [
-                "126567804723c07f"
+                "126567804723c07f",
+                "61293e4385da89e6"
             ],
             [
-                "5d56874727c814cc"
+                "5d56874727c814cc",
+                "313360b37c594eaf"
             ],
             [
-                "c1e338a7f8ef27a4"
+                "c1e338a7f8ef27a4",
+                "4eed1cab13a64733"
             ],
             [
                 "9ae9362fd6aa9c41",
-                "4eed1cab13a64733"
+                "929aa985fd64bb4d"
             ]
         ]
     },
@@ -306,8 +326,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 40,
+        "x": 910,
+        "y": 80,
         "wires": []
     },
     {
@@ -323,8 +343,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 100,
+        "x": 920,
+        "y": 200,
         "wires": []
     },
     {
@@ -340,8 +360,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 260,
+        "x": 920,
+        "y": 340,
         "wires": []
     },
     {
@@ -357,8 +377,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 320,
+        "x": 900,
+        "y": 480,
         "wires": []
     },
     {
@@ -374,77 +394,21 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 420,
+        "x": 890,
+        "y": 600,
         "wires": []
-    },
-    {
-        "id": "fb3a94ce18480850",
-        "type": "sqlite",
-        "z": "ed1d661b3babdc86",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Add contact",
-        "x": 970,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "328279ec507a92de",
-        "type": "sqlite",
-        "z": "ed1d661b3babdc86",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Update contact",
-        "x": 1000,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8bd08bf2b6c88887",
-        "type": "sqlite",
-        "z": "ed1d661b3babdc86",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Delete contact",
-        "x": 980,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0d4894fa0954842d",
-        "type": "sqlite",
-        "z": "ed1d661b3babdc86",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Add score",
-        "x": 960,
-        "y": 300,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "4eed1cab13a64733",
         "type": "link out",
         "z": "ed1d661b3babdc86",
-        "name": "RadioInfo Out",
+        "name": "score out",
         "mode": "link",
         "links": [
-            "282d59e6cbef0dff"
+            "36afc6334ea332fc"
         ],
-        "x": 475,
-        "y": 360,
+        "x": 835,
+        "y": 420,
         "wires": []
     },
     {
@@ -513,12 +477,64 @@
         "wires": []
     },
     {
+        "id": "313360b37c594eaf",
+        "type": "link out",
+        "z": "ed1d661b3babdc86",
+        "name": "contactdelete Out",
+        "mode": "link",
+        "links": [
+            "3c27a2bce0aa76dc"
+        ],
+        "x": 835,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "945feba65cc68c02",
+        "type": "link out",
+        "z": "ed1d661b3babdc86",
+        "name": "contactinfo Out",
+        "mode": "link",
+        "links": [
+            "59c86845bd2a1000"
+        ],
+        "x": 835,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "61293e4385da89e6",
+        "type": "link out",
+        "z": "ed1d661b3babdc86",
+        "name": "contact update Out",
+        "mode": "link",
+        "links": [
+            "067008bdb3b2e5a7"
+        ],
+        "x": 835,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "929aa985fd64bb4d",
+        "type": "link out",
+        "z": "ed1d661b3babdc86",
+        "name": "RadioInfo Out",
+        "mode": "link",
+        "links": [
+            "282d59e6cbef0dff"
+        ],
+        "x": 835,
+        "y": 560,
+        "wires": []
+    },
+    {
         "id": "282d59e6cbef0dff",
         "type": "link in",
         "z": "9688e29600bc170f",
         "name": "RadioInfo in",
         "links": [
-            "4eed1cab13a64733"
+            "929aa985fd64bb4d"
         ],
         "x": 205,
         "y": 120,
@@ -562,5 +578,61 @@
         "x": 430,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "59c86845bd2a1000",
+        "type": "link in",
+        "z": "57fa87e81c6b7466",
+        "name": "contactinfo In",
+        "links": [
+            "945feba65cc68c02"
+        ],
+        "x": 155,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "067008bdb3b2e5a7",
+        "type": "link in",
+        "z": "57fa87e81c6b7466",
+        "name": "contactupdate In",
+        "links": [
+            "61293e4385da89e6"
+        ],
+        "x": 155,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c27a2bce0aa76dc",
+        "type": "link in",
+        "z": "57fa87e81c6b7466",
+        "name": "contactdelete In",
+        "links": [
+            "313360b37c594eaf"
+        ],
+        "x": 155,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36afc6334ea332fc",
+        "type": "link in",
+        "z": "ea258bde43a2148d",
+        "name": "score In",
+        "links": [
+            "4eed1cab13a64733"
+        ],
+        "x": 105,
+        "y": 100,
+        "wires": [
+            []
+        ]
     }
 ]
