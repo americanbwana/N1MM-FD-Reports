@@ -18,7 +18,7 @@
     {
         "id": "9688e29600bc170f",
         "type": "tab",
-        "label": "Score report",
+        "label": "Dashboard",
         "disabled": false,
         "info": "",
         "env": []
@@ -676,6 +676,172 @@
         "wires": []
     },
     {
+        "id": "fa3525b0d0397ecd",
+        "type": "comment",
+        "z": "9688e29600bc170f",
+        "name": "Display FD info",
+        "info": "Display the information stored in the db.",
+        "x": 180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b0dcc8eebd275c03",
+        "type": "inject",
+        "z": "9688e29600bc170f",
+        "name": "Get data from DB",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "30",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 480,
+        "wires": [
+            [
+                "8bbaa53e6a81c840",
+                "021bd950990b8b73",
+                "de16ef2602814fc8"
+            ]
+        ]
+    },
+    {
+        "id": "8bbaa53e6a81c840",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Get radio info",
+        "x": 460,
+        "y": 380,
+        "wires": [
+            [
+                "e7f08fc832448517"
+            ]
+        ]
+    },
+    {
+        "id": "021bd950990b8b73",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Get score info",
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "7c2c99e5bf88842b",
+                "aec0a48b22cdb993"
+            ]
+        ]
+    },
+    {
+        "id": "de16ef2602814fc8",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Get contacts info",
+        "x": 470,
+        "y": 580,
+        "wires": [
+            [
+                "fa3e245c51eef63b"
+            ]
+        ]
+    },
+    {
+        "id": "e7f08fc832448517",
+        "type": "ui_template",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "name": "Display Radio Info",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 770,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c2c99e5bf88842b",
+        "type": "ui_text",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Number of contacts",
+        "label": "QSO's ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 780,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "aec0a48b22cdb993",
+        "type": "ui_text",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Claimed score",
+        "label": "Claimed score",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 760,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "fa3e245c51eef63b",
+        "type": "ui_template",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "name": "Display contact summary",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 790,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "59c86845bd2a1000",
         "type": "link in",
         "z": "57fa87e81c6b7466",
@@ -767,12 +933,31 @@
         "z": "ea258bde43a2148d",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES (msg.payload.timestamp, msg.payload.qsos, msg.payload.score, msg.payload.call);",
+        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES \n('{{{msg.payload.timestamp}}}',\n'{{{msg.payload.qsos}}}',\n'{{{msg.payload.score}}}', \n'{{msg.payload.call}}}');",
         "name": "scores to db",
         "x": 330,
         "y": 220,
         "wires": [
-            []
+            [
+                "ef77361738d9519b"
+            ]
         ]
+    },
+    {
+        "id": "ef77361738d9519b",
+        "type": "debug",
+        "z": "ea258bde43a2148d",
+        "name": "score record add debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 180,
+        "wires": []
     }
 ]
