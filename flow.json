@@ -64,26 +64,9 @@
         "y": 180,
         "wires": [
             [
-                "8dcbed028bef2783"
+                "7f9f7cc626f6bee6"
             ]
         ]
-    },
-    {
-        "id": "0b4fb25bbdb2a734",
-        "type": "debug",
-        "z": "582dd60c61740b29",
-        "name": "Create DB Debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 100,
-        "wires": []
     },
     {
         "id": "faae901da8dfee3a",
@@ -98,8 +81,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 240,
+        "x": 420,
+        "y": 260,
         "wires": []
     },
     {
@@ -115,27 +98,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 240,
+        "x": 710,
+        "y": 260,
         "wires": []
-    },
-    {
-        "id": "8dcbed028bef2783",
-        "type": "sqlite",
-        "z": "582dd60c61740b29",
-        "d": true,
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Create DB",
-        "x": 390,
-        "y": 180,
-        "wires": [
-            [
-                "0b4fb25bbdb2a734",
-                "7f9f7cc626f6bee6"
-            ]
-        ]
     },
     {
         "id": "7f9f7cc626f6bee6",
@@ -145,7 +110,7 @@
         "sqlquery": "fixed",
         "sql": "CREATE TABLE IF NOT EXISTS scores (\n\"timestamp\" TEXT,\n\"qsos\" TEXT,\n\"score\" TEXT,\n\"call\" TEXT );\n\n",
         "name": "Add scores table",
-        "x": 650,
+        "x": 430,
         "y": 180,
         "wires": [
             [
@@ -160,9 +125,9 @@
         "z": "582dd60c61740b29",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE IF NOT EXISTS contacts (\n    \"timestamp\" TEXT,\n    \"mycall\" TEXT,\n    \"band\" TEXT,\n    \"mode\" TEXT,\n    \"operator\" TEXT,\n    \"call\" TEXT,\n    \"StationName\" TEXT,\n    \"id\" TEXT\n);",
+        "sql": "CREATE TABLE IF NOT EXISTS contacts (\n    \"timestamp\" TEXT,\n    \"mycall\" TEXT,\n    \"band\" TEXT,\n    \"mode\" TEXT,\n    \"operator\" TEXT,\n    \"call\" TEXT,\n    \"StationName\" TEXT,\n    \"ID\" TEXT\n);",
         "name": "Add contacts table",
-        "x": 930,
+        "x": 710,
         "y": 180,
         "wires": [
             [
