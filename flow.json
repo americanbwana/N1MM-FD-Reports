@@ -244,7 +244,7 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "cont",
+                "t": "eq",
                 "v": "contactinfo",
                 "vt": "str"
             },
@@ -264,7 +264,7 @@
                 "vt": "str"
             },
             {
-                "t": "cont",
+                "t": "eq",
                 "v": "RadioInfo",
                 "vt": "msg"
             }
