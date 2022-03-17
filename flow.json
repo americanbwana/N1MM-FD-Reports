@@ -486,13 +486,30 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 360,
-        "y": 260,
+        "x": 320,
+        "y": 480,
         "wires": [
             [
-                "8b8b482f966a4649"
+                "8b8b482f966a4649",
+                "7d5ea0ed32105002"
             ]
         ]
+    },
+    {
+        "id": "7d5ea0ed32105002",
+        "type": "debug",
+        "z": "ed1d661b3babdc86",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 560,
+        "wires": []
     },
     {
         "id": "282d59e6cbef0dff",
@@ -516,7 +533,7 @@
         "type": "debug",
         "z": "9688e29600bc170f",
         "name": "RadioInfo link debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
