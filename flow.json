@@ -264,9 +264,9 @@
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "payload.RadioInfo",
-                "vt": "msg"
+                "t": "hask",
+                "v": "RadioInfo",
+                "vt": "str"
             }
         ],
         "checkall": "false",
@@ -443,8 +443,8 @@
         "links": [
             "282d59e6cbef0dff"
         ],
-        "x": 435,
-        "y": 320,
+        "x": 475,
+        "y": 360,
         "wires": []
     },
     {
@@ -487,7 +487,7 @@
         "action": "",
         "pretty": false,
         "x": 320,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "8b8b482f966a4649",
@@ -499,15 +499,16 @@
         "id": "7d5ea0ed32105002",
         "type": "debug",
         "z": "ed1d661b3babdc86",
-        "name": "",
+        "name": "xml2json result debug",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
+        "x": 520,
         "y": 560,
         "wires": []
     },
