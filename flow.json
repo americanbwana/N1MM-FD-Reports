@@ -185,7 +185,7 @@
         "wires": [
             [
                 "1aea26f8b3c65e17",
-                "8b8b482f966a4649"
+                "8af9098588ab5872"
             ]
         ]
     },
@@ -225,35 +225,35 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "eq",
-                "v": "msg.payload.contactinfo",
+                "t": "cont",
+                "v": "contactinfo",
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "msg.payload.contactupdate",
+                "t": "cont",
+                "v": "contactupdate",
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "msg.payload.contactdelete",
+                "t": "cont",
+                "v": "contactdelete",
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "msg.payload.dynamicresults.score",
+                "t": "cont",
+                "v": "score",
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "msg.payload.RadioInfo",
+                "t": "cont",
+                "v": "RadioInfo",
                 "vt": "str"
             }
         ],
         "checkall": "false",
         "repair": false,
         "outputs": 5,
-        "x": 400,
+        "x": 460,
         "y": 180,
         "wires": [
             [
@@ -357,5 +357,24 @@
         "x": 650,
         "y": 420,
         "wires": []
+    },
+    {
+        "id": "8af9098588ab5872",
+        "type": "function",
+        "z": "ed1d661b3babdc86",
+        "name": "UTF-8",
+        "func": "msg.payload=msg.payload.toString('UTF8');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "8b8b482f966a4649"
+            ]
+        ]
     }
 ]
