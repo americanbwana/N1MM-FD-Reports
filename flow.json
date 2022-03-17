@@ -30,6 +30,25 @@
         "mode": "RWC"
     },
     {
+        "id": "6e27ac53741afeb6",
+        "type": "ui_group",
+        "name": "RadioInfoGroup",
+        "tab": "43cf7c82292ea2b7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "43cf7c82292ea2b7",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "b59e5c475c6efd65",
         "type": "comment",
         "z": "582dd60c61740b29",
@@ -269,7 +288,8 @@
                 "c1e338a7f8ef27a4"
             ],
             [
-                "9ae9362fd6aa9c41"
+                "9ae9362fd6aa9c41",
+                "4eed1cab13a64733"
             ]
         ]
     },
@@ -376,5 +396,175 @@
                 "8b8b482f966a4649"
             ]
         ]
+    },
+    {
+        "id": "fb3a94ce18480850",
+        "type": "sqlite",
+        "z": "ed1d661b3babdc86",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Add contact",
+        "x": 970,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "328279ec507a92de",
+        "type": "sqlite",
+        "z": "ed1d661b3babdc86",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Update contact",
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8bd08bf2b6c88887",
+        "type": "sqlite",
+        "z": "ed1d661b3babdc86",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Delete contact",
+        "x": 980,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d4894fa0954842d",
+        "type": "sqlite",
+        "z": "ed1d661b3babdc86",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "",
+        "name": "Add score",
+        "x": 960,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4eed1cab13a64733",
+        "type": "link out",
+        "z": "ed1d661b3babdc86",
+        "name": "RadioInfo Out",
+        "mode": "link",
+        "links": [
+            "282d59e6cbef0dff"
+        ],
+        "x": 435,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "282d59e6cbef0dff",
+        "type": "link in",
+        "z": "9688e29600bc170f",
+        "name": "RadioInfo in",
+        "links": [
+            "4eed1cab13a64733"
+        ],
+        "x": 205,
+        "y": 120,
+        "wires": [
+            [
+                "0e8734251e109b7c",
+                "bd65706de28ae82b"
+            ]
+        ]
+    },
+    {
+        "id": "bd65706de28ae82b",
+        "type": "ui_table",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "name": "RadioInfo",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "StationName",
+                "title": "Station",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Freq",
+                "title": "Freq",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Mode",
+                "title": "Mode",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "RadioName",
+                "title": "",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "IsRunning",
+                "title": "",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 400,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0e8734251e109b7c",
+        "type": "debug",
+        "z": "9688e29600bc170f",
+        "name": "RadioInfo link debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 240,
+        "wires": []
     }
 ]
