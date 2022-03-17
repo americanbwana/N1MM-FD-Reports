@@ -968,7 +968,7 @@
         "z": "ea258bde43a2148d",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES \n('{{{msg.payload.timestamp}}}',\n'{{{msg.payload.qsos}}}',\n'{{{msg.payload.score}}}', \n'{{msg.payload.call}}}');",
+        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES \n('{{{payload.dynamicresults.timestamp}}}',\n'{{{payload.dynamicresults.qsos}}}',\n'{{{payload.dynamicresults.score}}}', \n'{{payload.dynamicresults.call}}}');",
         "name": "scores to db",
         "x": 330,
         "y": 220,
