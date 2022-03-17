@@ -123,6 +123,7 @@
         "id": "8dcbed028bef2783",
         "type": "sqlite",
         "z": "582dd60c61740b29",
+        "d": true,
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "msg.topic",
         "sql": "",
