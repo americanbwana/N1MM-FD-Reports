@@ -466,7 +466,7 @@
         "type": "debug",
         "z": "ed1d661b3babdc86",
         "name": "xml2json debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -474,8 +474,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 60,
+        "x": 400,
+        "y": 80,
         "wires": []
     },
     {
@@ -485,7 +485,7 @@
         "name": "To json object",
         "property": "payload",
         "action": "",
-        "pretty": true,
+        "pretty": false,
         "x": 320,
         "y": 480,
         "wires": [
