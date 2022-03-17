@@ -533,7 +533,7 @@
         "type": "debug",
         "z": "9688e29600bc170f",
         "name": "RadioInfo link debug",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
