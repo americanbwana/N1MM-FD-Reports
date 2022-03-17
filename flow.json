@@ -968,7 +968,7 @@
         "z": "ea258bde43a2148d",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES (\"10\",\"10\",\"10\",\"nn0g\");",
+        "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES (msg.timestamp,\"10\",\"10\",\"nn0g\");",
         "name": "scores to db",
         "x": 330,
         "y": 220,
