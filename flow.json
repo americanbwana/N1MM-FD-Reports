@@ -1024,10 +1024,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "topic",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
+        "x": 500,
         "y": 140,
         "wires": []
     }
