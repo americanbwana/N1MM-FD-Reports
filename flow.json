@@ -288,8 +288,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 5,
-        "x": 460,
-        "y": 180,
+        "x": 500,
+        "y": 320,
         "wires": [
             [
                 "4120bd0cd20f1c8c",
@@ -450,8 +450,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 320,
-        "y": 440,
+        "x": 340,
+        "y": 220,
         "wires": [
             [
                 "8b8b482f966a4649",
@@ -472,8 +472,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 560,
+        "x": 540,
+        "y": 140,
         "wires": []
     },
     {
