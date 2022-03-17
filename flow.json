@@ -1,1 +1,172 @@
-[]
+[
+    {
+        "id": "ed1d661b3babdc86",
+        "type": "tab",
+        "label": "DB Ingest",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9688e29600bc170f",
+        "type": "tab",
+        "label": "Score report",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "582dd60c61740b29",
+        "type": "tab",
+        "label": "Station report",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8c6c30ddd10c4e52",
+        "type": "sqlitedb",
+        "db": "data.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "b59e5c475c6efd65",
+        "type": "comment",
+        "z": "582dd60c61740b29",
+        "name": "DB creation",
+        "info": "# DB Creation\n\nCreate db data.db in current directory (.node-red)\nCreate tables if they don't exist\n - TBL - scores\n - call (IDX)\n - contest\n - score\n - timestamp\n\nTBL - radio (may not need, live data)\n - RadioName\n - StationName\n - Freq\n - Mode\n - OpCall\n\nTBL - contacts\n - timestamp\n - mycall\n - band\n - txfreq\n - rxfreq\n - operator\n - mode\n - call\n - StationName\n - id\n\n",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fc1b2281ca77c93d",
+        "type": "inject",
+        "z": "582dd60c61740b29",
+        "name": "Start DB creation",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "8dcbed028bef2783"
+            ]
+        ]
+    },
+    {
+        "id": "0b4fb25bbdb2a734",
+        "type": "debug",
+        "z": "582dd60c61740b29",
+        "name": "Create DB Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "faae901da8dfee3a",
+        "type": "debug",
+        "z": "582dd60c61740b29",
+        "name": "Add scores tbl debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9d1a9e7630368717",
+        "type": "debug",
+        "z": "582dd60c61740b29",
+        "name": "Add contacts table debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8dcbed028bef2783",
+        "type": "sqlite",
+        "z": "582dd60c61740b29",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Create DB",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "0b4fb25bbdb2a734",
+                "7f9f7cc626f6bee6"
+            ]
+        ]
+    },
+    {
+        "id": "7f9f7cc626f6bee6",
+        "type": "sqlite",
+        "z": "582dd60c61740b29",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS scores (\n\"timestamp\" TEXT,\n\"qsos\" TEXT,\n\"score\" TEXT,\n\"call\" TEXT );\n\nCREATE INDEX IF NOT EXISTS call_idx on scores(call);",
+        "name": "Add scores table",
+        "x": 650,
+        "y": 180,
+        "wires": [
+            [
+                "faae901da8dfee3a",
+                "ea5cbb93f055ae3d"
+            ]
+        ]
+    },
+    {
+        "id": "ea5cbb93f055ae3d",
+        "type": "sqlite",
+        "z": "582dd60c61740b29",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS contacts (\n    \"timestamp\" TEXT,\n    \"mycall\" TEXT,\n    \"band\" TEXT,\n    \"mode\" TEXT,\n    \"operator\" TEXT,\n    \"call\" TEXT,\n    \"StationName\" TEXT,\n    \"id\" TEXT\n);",
+        "name": "Add contacts table",
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "9d1a9e7630368717"
+            ]
+        ]
+    }
+]
