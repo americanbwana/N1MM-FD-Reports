@@ -452,11 +452,11 @@
         "type": "xml2json",
         "z": "ed1d661b3babdc86",
         "name": "Parse xml to json",
-        "x": 250,
-        "y": 120,
+        "x": 170,
+        "y": 100,
         "wires": [
             [
-                "8b8b482f966a4649",
+                "afa8a845e5230056",
                 "b855aef7f8e6ec11"
             ]
         ]
@@ -477,6 +477,22 @@
         "x": 460,
         "y": 60,
         "wires": []
+    },
+    {
+        "id": "afa8a845e5230056",
+        "type": "json",
+        "z": "ed1d661b3babdc86",
+        "name": "To json object",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "8b8b482f966a4649"
+            ]
+        ]
     },
     {
         "id": "282d59e6cbef0dff",
