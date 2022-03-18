@@ -901,9 +901,11 @@
             "61293e4385da89e6"
         ],
         "x": 155,
-        "y": 140,
+        "y": 280,
         "wires": [
-            []
+            [
+                "fb691b715d6646c6"
+            ]
         ]
     },
     {
@@ -915,7 +917,7 @@
             "313360b37c594eaf"
         ],
         "x": 155,
-        "y": 220,
+        "y": 480,
         "wires": [
             []
         ]
@@ -970,6 +972,57 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "fb691b715d6646c6",
+        "type": "template",
+        "z": "57fa87e81c6b7466",
+        "name": "Replace contact template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "UPDATE contacts\nSET timestamp = \"{{payload.contactinfo.timestamp}}\",\n    mycall = \"{{payload.contactinfo.mycall}}\",\n    band = \"{{payload.contactinfo.band}}\",\n    mode = \"{{payload.contactinfo.mode}}\",\n    operator = \"{{payload.contactinfo.operator}}\",\n    call = \"{{payload.contactinfo.call}}\"\n    StationName = \"{{payload.contactinfo.StationName}}\"\nWHERE ID = \"{{payload.contactinfo.ID}}\"\n",
+        "output": "str",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "9c4b21ff0626a400",
+                "60d57613d4868605"
+            ]
+        ]
+    },
+    {
+        "id": "9c4b21ff0626a400",
+        "type": "sqlite",
+        "z": "57fa87e81c6b7466",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Replace contact",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60d57613d4868605",
+        "type": "debug",
+        "z": "57fa87e81c6b7466",
+        "name": "Replace contact template debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "36afc6334ea332fc",
