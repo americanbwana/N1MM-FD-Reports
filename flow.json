@@ -970,7 +970,7 @@
         "sqlquery": "msg.topic",
         "sql": "INSERT INTO scores (timestamp, qsos, score, call) \nVALUES ('${payload.dynamicresults.timestamp}',\"${payload.dynamicresults.qsos}\",\"${payload.dynamicresults.score}\",\"${payload.dynamicresults.call}\");",
         "name": "scores to db",
-        "x": 490,
+        "x": 790,
         "y": 240,
         "wires": [
             [
@@ -991,7 +991,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
+        "x": 1090,
         "y": 140,
         "wires": []
     },
@@ -1004,9 +1004,9 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "INSERT INTO scores (\n    timestamp,\n    qsos,\n    score,\n    call\n)\nVALUES (\n    \"{{payload.dynamicresults.timestamp}}\",\n    \"2\",\n    \"{{payload.dynamicresults.score}}\",\n    \"{{payload.dynamicresults.call}}\"\n);",
+        "template": "INSERT INTO scores (\n    timestamp,\n    qsos,\n    score,\n    call\n)\nVALUES (\n    \"{{payload.dynamicresults.timestamp}}\",\n    \"{{payload.dynamicresults.breakdown.qso}}\",\n    \"{{payload.dynamicresults.score}}\",\n    \"{{payload.dynamicresults.call}}\"\n);",
         "output": "str",
-        "x": 300,
+        "x": 600,
         "y": 200,
         "wires": [
             [
@@ -1028,7 +1028,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 850,
         "y": 140,
         "wires": []
     }
