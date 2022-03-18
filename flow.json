@@ -919,7 +919,9 @@
         "x": 155,
         "y": 480,
         "wires": [
-            []
+            [
+                "6d8156dcb214eb47"
+            ]
         ]
     },
     {
@@ -1023,6 +1025,57 @@
         "x": 660,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "6d8156dcb214eb47",
+        "type": "template",
+        "z": "57fa87e81c6b7466",
+        "name": "Delete contact template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DELETE FROM contacts \nWHERE ID = \"{{payload.contactdelete.ID}}\"",
+        "output": "str",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "3c43f0c242f93ea4",
+                "93a87c2f4529dc9f"
+            ]
+        ]
+    },
+    {
+        "id": "3c43f0c242f93ea4",
+        "type": "debug",
+        "z": "57fa87e81c6b7466",
+        "name": "Delete contact template debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "93a87c2f4529dc9f",
+        "type": "sqlite",
+        "z": "57fa87e81c6b7466",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Delete contact",
+        "x": 620,
+        "y": 480,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "36afc6334ea332fc",
