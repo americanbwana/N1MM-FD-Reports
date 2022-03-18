@@ -1201,7 +1201,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "INSERT OR REPLACE INTO radios (\n    RadioName,\n    StationName,\n    CombinedId,\n    freq,\n    Mode,\n    OpCall,\n    IsRunning\n)\nVALUES (\n    \"{{payload.RadioInfo.RadioName}}\",\n    \"{{payload.RadioInfo.StationName}}\",\n    \"{{payload.RadioInfo.StationName}}-{{payload.RadioInfo.RadioName}},\n    \"{{payload.RadioInfo.Freq}}\",\n    \"{{payload.RadioInfo.Mode}}\",\n    \"{{payload.RadioInfo.OpCall}}\",\n    \"{{payload.RadioInfo.IsRunning}}\"\n);",
+        "template": "INSERT OR REPLACE INTO radios (\n    RadioName,\n    StationName,\n    CombinedId,\n    freq,\n    Mode,\n    OpCall,\n    IsRunning\n)\nVALUES (\n    \"{{payload.RadioInfo.RadioName}}\",\n    \"{{payload.RadioInfo.StationName}}\",\n    \"{{payload.RadioInfo.StationName}}\"\"{{payload.RadioInfo.RadioName}},\n    \"{{payload.RadioInfo.Freq}}\",\n    \"{{payload.RadioInfo.Mode}}\",\n    \"{{payload.RadioInfo.OpCall}}\",\n    \"{{payload.RadioInfo.IsRunning}}\"\n);",
         "output": "str",
         "x": 370,
         "y": 220,
