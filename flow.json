@@ -982,7 +982,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "UPDATE contacts\nSET timestamp = \"{{payload.contactreplace.timestamp}}\",\n    mycall = \"{{payload.contactreplace.mycall}}\",\n    band = \"{{payload.contactreplace.band}}\",\n    mode = \"{{payload.contactreplace.mode}}\",\n    operator = \"{{payload.contactreplace.operator}}\",\n    call = \"{{payload.contactreplace.call}}\"\n    StationName = \"{{payload.contactreplace.StationName}}\"\nWHERE ID = \"{{payload.contactreplace.ID}}\"\n",
+        "template": "UPDATE contacts\nSET timestamp = \"{{payload.contactreplace.timestamp}}\",\n    mycall = \"{{payload.contactreplace.mycall}}\",\n    band = \"{{payload.contactreplace.band}}\",\n    mode = \"{{payload.contactreplace.mode}}\",\n    operator = \"{{payload.contactreplace.operator}}\",\n    call = \"{{payload.contactreplace.call}}\",\n    StationName = \"{{payload.contactreplace.StationName}}\"\nWHERE ID = \"{{payload.contactreplace.ID}}\"\n",
         "output": "str",
         "x": 350,
         "y": 280,
