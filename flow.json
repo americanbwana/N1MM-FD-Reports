@@ -887,7 +887,9 @@
         "x": 155,
         "y": 80,
         "wires": [
-            []
+            [
+                "23ceb38938988c38"
+            ]
         ]
     },
     {
@@ -914,6 +916,57 @@
         ],
         "x": 155,
         "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23ceb38938988c38",
+        "type": "template",
+        "z": "57fa87e81c6b7466",
+        "name": "Add contacts template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO contacts (\n    timestamp,\n    mycall,\n    band,\n    mode,\n    operator,\n    call,\n    StationName,\n    ID\n\n)\nVALUES (\n    \"{{payload.contactinfo.timestamp}}\",\n    \"{{payload.contactinfo.mycall}}\",\n    \"{{payload.contactinfo.band}}\",\n    \"{{payload.contactinfo.mode}}\",\n    \"{{payload.contactinfo.operator}}\",\n    \"{{payload.contactinfo.call}}\",\n    \"{{payload.contactinfo.StationName}}\",\n    \"{{payload.contactinfo.ID}}\"\n);!",
+        "output": "str",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "df19f74061835366",
+                "44b54d5daf5d8b24"
+            ]
+        ]
+    },
+    {
+        "id": "df19f74061835366",
+        "type": "debug",
+        "z": "57fa87e81c6b7466",
+        "name": "Add contact template debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "44b54d5daf5d8b24",
+        "type": "sqlite",
+        "z": "57fa87e81c6b7466",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Add new contact",
+        "x": 630,
+        "y": 80,
         "wires": [
             []
         ]
