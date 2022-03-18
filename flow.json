@@ -978,7 +978,7 @@
         "type": "template",
         "z": "57fa87e81c6b7466",
         "name": "Replace contact template",
-        "field": "payload",
+        "field": "topic",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
