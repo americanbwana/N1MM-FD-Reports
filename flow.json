@@ -315,7 +315,7 @@
         "z": "582dd60c61740b29",
         "mydb": "8c6c30ddd10c4e52",
         "sqlquery": "fixed",
-        "sql": "CREATE TABLE IF NOT EXISTS radios (\n\"RadioName\" TEXT,\n\"StationName\" TEXT,\n\"Freq\" TEXT,\n\"Mode\" TEXT,\n\"OpCall\" TEXT,\n\"IsRunning\" INT\n);",
+        "sql": "CREATE TABLE IF NOT EXISTS radios (\n\"RadioName\" TEXT,\n\"StationName\" TEXT UNIQUE,\n\"Freq\" TEXT,\n\"Mode\" TEXT,\n\"OpCall\" TEXT,\n\"IsRunning\" INT\n);",
         "name": "Add radio table",
         "x": 1340,
         "y": 180,
