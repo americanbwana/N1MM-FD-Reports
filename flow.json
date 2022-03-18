@@ -396,7 +396,7 @@
             },
             {
                 "t": "hask",
-                "v": "contactupdate",
+                "v": "contactreplace",
                 "vt": "str"
             },
             {
