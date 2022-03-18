@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "22fd95d8531fc701",
+        "type": "tab",
+        "label": "Manage radios table",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8c6c30ddd10c4e52",
         "type": "sqlitedb",
         "db": "data.db",
@@ -346,7 +354,7 @@
         "group": "",
         "datatype": "buffer",
         "x": 100,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "1aea26f8b3c65e17",
@@ -377,8 +385,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 130,
-        "y": 260,
+        "x": 290,
+        "y": 220,
         "wires": []
     },
     {
@@ -418,8 +426,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 5,
-        "x": 500,
-        "y": 320,
+        "x": 700,
+        "y": 340,
         "wires": [
             [
                 "4120bd0cd20f1c8c",
@@ -456,8 +464,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 80,
+        "x": 1110,
+        "y": 100,
         "wires": []
     },
     {
@@ -473,8 +481,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 200,
+        "x": 1120,
+        "y": 220,
         "wires": []
     },
     {
@@ -490,8 +498,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 340,
+        "x": 1120,
+        "y": 360,
         "wires": []
     },
     {
@@ -507,8 +515,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 480,
+        "x": 1100,
+        "y": 500,
         "wires": []
     },
     {
@@ -524,8 +532,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 600,
+        "x": 1090,
+        "y": 620,
         "wires": []
     },
     {
@@ -537,8 +545,8 @@
         "links": [
             "36afc6334ea332fc"
         ],
-        "x": 835,
-        "y": 420,
+        "x": 1035,
+        "y": 440,
         "wires": []
     },
     {
@@ -546,8 +554,8 @@
         "type": "xml2json",
         "z": "ed1d661b3babdc86",
         "name": "Parse xml to json",
-        "x": 170,
-        "y": 100,
+        "x": 330,
+        "y": 160,
         "wires": [
             [
                 "afa8a845e5230056",
@@ -568,8 +576,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 80,
+        "x": 600,
+        "y": 100,
         "wires": []
     },
     {
@@ -580,8 +588,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 340,
-        "y": 220,
+        "x": 540,
+        "y": 240,
         "wires": [
             [
                 "8b8b482f966a4649",
@@ -602,8 +610,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 140,
+        "x": 740,
+        "y": 160,
         "wires": []
     },
     {
@@ -615,8 +623,8 @@
         "links": [
             "3c27a2bce0aa76dc"
         ],
-        "x": 835,
-        "y": 280,
+        "x": 1035,
+        "y": 300,
         "wires": []
     },
     {
@@ -628,8 +636,8 @@
         "links": [
             "59c86845bd2a1000"
         ],
-        "x": 835,
-        "y": 40,
+        "x": 1035,
+        "y": 60,
         "wires": []
     },
     {
@@ -641,8 +649,8 @@
         "links": [
             "067008bdb3b2e5a7"
         ],
-        "x": 835,
-        "y": 160,
+        "x": 1035,
+        "y": 180,
         "wires": []
     },
     {
@@ -652,62 +660,11 @@
         "name": "RadioInfo Out",
         "mode": "link",
         "links": [
-            "282d59e6cbef0dff"
+            "282d59e6cbef0dff",
+            "dfb6927d4fc6308c"
         ],
-        "x": 835,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "282d59e6cbef0dff",
-        "type": "link in",
-        "z": "9688e29600bc170f",
-        "name": "RadioInfo in",
-        "links": [
-            "929aa985fd64bb4d"
-        ],
-        "x": 205,
-        "y": 120,
-        "wires": [
-            [
-                "0e8734251e109b7c",
-                "295143c0d3e965b8"
-            ]
-        ]
-    },
-    {
-        "id": "0e8734251e109b7c",
-        "type": "debug",
-        "z": "9688e29600bc170f",
-        "name": "RadioInfo link debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "295143c0d3e965b8",
-        "type": "ui_text",
-        "z": "9688e29600bc170f",
-        "d": true,
-        "group": "6e27ac53741afeb6",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "StationName",
-        "label": "Station Name",
-        "format": "{{msg.payload.RadioInfo.StationName}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 430,
-        "y": 120,
+        "x": 1035,
+        "y": 580,
         "wires": []
     },
     {
@@ -741,8 +698,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 190,
-        "y": 480,
+        "x": 210,
+        "y": 300,
         "wires": [
             [
                 "8bbaa53e6a81c840",
@@ -759,8 +716,8 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get radio info",
-        "x": 460,
-        "y": 380,
+        "x": 480,
+        "y": 200,
         "wires": [
             [
                 "e7f08fc832448517"
@@ -775,8 +732,8 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get score info",
-        "x": 460,
-        "y": 480,
+        "x": 480,
+        "y": 300,
         "wires": [
             [
                 "7c2c99e5bf88842b",
@@ -792,8 +749,8 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get contacts info",
-        "x": 470,
-        "y": 580,
+        "x": 490,
+        "y": 400,
         "wires": [
             [
                 "fa3e245c51eef63b"
@@ -815,8 +772,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 770,
-        "y": 380,
+        "x": 790,
+        "y": 200,
         "wires": [
             []
         ]
@@ -834,8 +791,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 780,
-        "y": 440,
+        "x": 800,
+        "y": 260,
         "wires": []
     },
     {
@@ -851,8 +808,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 760,
-        "y": 520,
+        "x": 780,
+        "y": 340,
         "wires": []
     },
     {
@@ -870,8 +827,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 790,
-        "y": 580,
+        "x": 810,
+        "y": 400,
         "wires": [
             []
         ]
@@ -1078,6 +1035,16 @@
         ]
     },
     {
+        "id": "769fe4dca4c986ad",
+        "type": "comment",
+        "z": "57fa87e81c6b7466",
+        "name": "Delete contact notes",
+        "info": "The ID format is different from contactinfo and contactreplace.\n\ncontactdelete\n2a728cd1-a431-4f09-9b29-1854664dd267\n\ninfo and replace \n2a728cd1a4314f099b291854664dd267",
+        "x": 330,
+        "y": 420,
+        "wires": []
+    },
+    {
         "id": "36afc6334ea332fc",
         "type": "link in",
         "z": "ea258bde43a2148d",
@@ -1189,6 +1156,110 @@
         "statusType": "auto",
         "x": 670,
         "y": 140,
+        "wires": []
+    },
+    {
+        "id": "dfb6927d4fc6308c",
+        "type": "link in",
+        "z": "22fd95d8531fc701",
+        "name": "RadioInfo in",
+        "links": [
+            "929aa985fd64bb4d"
+        ],
+        "x": 185,
+        "y": 220,
+        "wires": [
+            [
+                "06d2ead583af2bba",
+                "5a5d74845c26ce1a"
+            ]
+        ]
+    },
+    {
+        "id": "06d2ead583af2bba",
+        "type": "debug",
+        "z": "22fd95d8531fc701",
+        "name": "RadioInfo In debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5a5d74845c26ce1a",
+        "type": "template",
+        "z": "22fd95d8531fc701",
+        "name": "RadioInfo template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT OR REPLACE INTO radios (\n    RadioName,\n    StationName,\n    freq,\n    Mode,\n    OpCall,\n    IsRunning\n)\nVALUES (\n    \"{{payload.RadioInfo.RadioName}}\",\n    \"{{payload.RadioInfo.StationName}}\",\n    \"{{payload.RadioInfo.freq}}\",\n    \"{{payload.RadioInfo.Mode}}\",\n    \"{{payload.RadioInfo.OpCall}}\",\n    \"{{payload.RadioInfo.IsRunning}}\",\n);",
+        "output": "str",
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "3ad46ecded76ddc2",
+                "d0e98c955efbe02e"
+            ]
+        ]
+    },
+    {
+        "id": "3ad46ecded76ddc2",
+        "type": "debug",
+        "z": "22fd95d8531fc701",
+        "name": "RadioInfo template debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d0e98c955efbe02e",
+        "type": "sqlite",
+        "z": "22fd95d8531fc701",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "RadioInfo db",
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "83296439ae828561"
+            ]
+        ]
+    },
+    {
+        "id": "83296439ae828561",
+        "type": "debug",
+        "z": "22fd95d8531fc701",
+        "name": "RadioInfo insert or replace",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 200,
         "wires": []
     }
 ]
