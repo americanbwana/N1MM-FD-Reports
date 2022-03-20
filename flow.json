@@ -1030,7 +1030,7 @@
         "height": 0,
         "name": "Display claimed score",
         "label": "Claimed Score:",
-        "format": "{{msg.payload}}",
+        "format": "{{payload[0][\"sum(results.score)\"]}}",
         "layout": "row-left",
         "className": "",
         "x": 1160,
