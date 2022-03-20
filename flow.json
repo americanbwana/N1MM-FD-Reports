@@ -736,8 +736,8 @@
         "y": 300,
         "wires": [
             [
-                "7c2c99e5bf88842b",
-                "aec0a48b22cdb993"
+                "aec0a48b22cdb993",
+                "8fe31cab6d564643"
             ]
         ]
     },
@@ -791,8 +791,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 800,
-        "y": 260,
+        "x": 1030,
+        "y": 220,
         "wires": []
     },
     {
@@ -832,6 +832,40 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "8fe31cab6d564643",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "fixed",
+        "sql": "SELECT Count(*) from contacts;",
+        "name": "Get contacts count",
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [
+                "7c2c99e5bf88842b",
+                "15421e168d208ad7"
+            ]
+        ]
+    },
+    {
+        "id": "15421e168d208ad7",
+        "type": "debug",
+        "z": "9688e29600bc170f",
+        "name": "Get contacts count debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 300,
+        "wires": []
     },
     {
         "id": "59c86845bd2a1000",
