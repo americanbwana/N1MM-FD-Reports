@@ -828,7 +828,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "SELECT DISTINCT call, MAX(timestamp), score \nFROM scores\nGROUP BY call\nORDER BY score;",
+        "template": "SELECT DISTINCT call, MAX(timestamp), score \nFROM scores\nGROUP BY call\nORDER BY score DESC;",
         "output": "str",
         "x": 490,
         "y": 780,
