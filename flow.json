@@ -703,8 +703,8 @@
         "wires": [
             [
                 "8bbaa53e6a81c840",
-                "021bd950990b8b73",
-                "de16ef2602814fc8"
+                "de16ef2602814fc8",
+                "9d23acd0acac4dd9"
             ]
         ]
     },
@@ -725,23 +725,6 @@
         ]
     },
     {
-        "id": "021bd950990b8b73",
-        "type": "sqlite",
-        "z": "9688e29600bc170f",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Get score info",
-        "x": 480,
-        "y": 300,
-        "wires": [
-            [
-                "aec0a48b22cdb993",
-                "9d23acd0acac4dd9"
-            ]
-        ]
-    },
-    {
         "id": "de16ef2602814fc8",
         "type": "sqlite",
         "z": "9688e29600bc170f",
@@ -749,8 +732,8 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get contacts info",
-        "x": 490,
-        "y": 400,
+        "x": 470,
+        "y": 580,
         "wires": [
             [
                 "fa3e245c51eef63b"
@@ -791,8 +774,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 1290,
-        "y": 220,
+        "x": 1110,
+        "y": 240,
         "wires": []
     },
     {
@@ -809,7 +792,7 @@
         "layout": "row-left",
         "className": "",
         "x": 780,
-        "y": 340,
+        "y": 480,
         "wires": []
     },
     {
@@ -827,8 +810,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 810,
-        "y": 400,
+        "x": 790,
+        "y": 580,
         "wires": [
             []
         ]
@@ -841,8 +824,8 @@
         "sqlquery": "msg.topic",
         "sql": "SELECT Count(*) from contacts;",
         "name": "Get contacts count",
-        "x": 1010,
-        "y": 280,
+        "x": 790,
+        "y": 300,
         "wires": [
             [
                 "7c2c99e5bf88842b",
@@ -863,7 +846,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1310,
+        "x": 1150,
         "y": 300,
         "wires": []
     },
@@ -878,8 +861,8 @@
         "syntax": "mustache",
         "template": "SELECT Count(*) from contacts;",
         "output": "str",
-        "x": 780,
-        "y": 280,
+        "x": 500,
+        "y": 300,
         "wires": [
             [
                 "8fe31cab6d564643"
