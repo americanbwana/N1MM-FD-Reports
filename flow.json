@@ -703,27 +703,10 @@
         "y": 300,
         "wires": [
             [
-                "8bbaa53e6a81c840",
                 "de16ef2602814fc8",
                 "9d23acd0acac4dd9",
                 "0aaed5f4c3d735f6",
                 "cd6a3904414207f4"
-            ]
-        ]
-    },
-    {
-        "id": "8bbaa53e6a81c840",
-        "type": "sqlite",
-        "z": "9688e29600bc170f",
-        "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
-        "sql": "",
-        "name": "Get radio info",
-        "x": 800,
-        "y": 200,
-        "wires": [
-            [
-                "e7f08fc832448517"
             ]
         ]
     },
@@ -744,32 +727,11 @@
         ]
     },
     {
-        "id": "e7f08fc832448517",
-        "type": "ui_template",
-        "z": "9688e29600bc170f",
-        "group": "6e27ac53741afeb6",
-        "name": "Display Radio Info",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<div ng-bind-html=\"msg.payload\"></div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1110,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "7c2c99e5bf88842b",
         "type": "ui_text",
         "z": "9688e29600bc170f",
         "group": "6e27ac53741afeb6",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "Number of contacts",
@@ -914,7 +876,7 @@
         "z": "9688e29600bc170f",
         "group": "6e27ac53741afeb6",
         "name": "Display score by call",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "format": "<table>\n<tr>\n    <th>Call</th>\n    <th>Score</th>\n</tr>\n<tbody>\n    <tr ng-repeat=\"row in msg.payload\" style=\"text-align:center\">\n        <td>{{row.call}}</td>\n        <td>{{row.score}}</td>\n    </tr>\n</tbody>\n</table>",
@@ -971,7 +933,7 @@
         "z": "9688e29600bc170f",
         "group": "6e27ac53741afeb6",
         "name": "Display Radios",
-        "order": 4,
+        "order": 3,
         "width": "6",
         "height": "2",
         "format": "<table>\n<tr>\n    <th>Call</th>\n    <th>Radio</th>\n    <th>Station</th>\n    <th>Freq</th>\n    <th>Mode</th>\n    <th>Running</th>\n</tr>\n<tbody>\n    <tr ng-repeat=\"row in msg.payload\" style=\"text-align:center\">\n        <td>{{row.OpCall}}</td>\n        <td>{{row.RadioName}}</td>\n        <td>{{row.StationName}}</td>\n        <td>{{row.Freq}}</td>\n        <td>{{row.Mode}}</td>\n        <td>{{row.IsRunning}}</td>\n    </tr>\n</tbody>\n</table>",
