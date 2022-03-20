@@ -56,7 +56,7 @@
     {
         "id": "6e27ac53741afeb6",
         "type": "ui_group",
-        "name": "RadioInfoGroup",
+        "name": "FD Stats",
         "tab": "43cf7c82292ea2b7",
         "order": 1,
         "disp": true,
@@ -81,7 +81,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -705,7 +706,8 @@
                 "8bbaa53e6a81c840",
                 "de16ef2602814fc8",
                 "9d23acd0acac4dd9",
-                "0aaed5f4c3d735f6"
+                "0aaed5f4c3d735f6",
+                "cd6a3904414207f4"
             ]
         ]
     },
@@ -717,7 +719,7 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get radio info",
-        "x": 480,
+        "x": 800,
         "y": 200,
         "wires": [
             [
@@ -734,7 +736,7 @@
         "sql": "",
         "name": "Get contacts info",
         "x": 470,
-        "y": 580,
+        "y": 680,
         "wires": [
             [
                 "fa3e245c51eef63b"
@@ -756,8 +758,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 790,
-        "y": 200,
+        "x": 1110,
+        "y": 180,
         "wires": [
             []
         ]
@@ -794,8 +796,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 790,
-        "y": 580,
+        "x": 810,
+        "y": 680,
         "wires": [
             []
         ]
@@ -926,6 +928,80 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "cd6a3904414207f4",
+        "type": "template",
+        "z": "9688e29600bc170f",
+        "name": "Get Radios",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT * from radios ORDER BY OpCall;",
+        "output": "str",
+        "x": 470,
+        "y": 540,
+        "wires": [
+            [
+                "af029b78a92d5688"
+            ]
+        ]
+    },
+    {
+        "id": "af029b78a92d5688",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get Radios",
+        "x": 790,
+        "y": 580,
+        "wires": [
+            [
+                "01e0ba308213e070",
+                "bb0f49ec97fc3830"
+            ]
+        ]
+    },
+    {
+        "id": "01e0ba308213e070",
+        "type": "ui_template",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "name": "Display Radios",
+        "order": 4,
+        "width": "6",
+        "height": "2",
+        "format": "<table>\n<tr>\n    <th>Call</th>\n    <th>Radio</th>\n    <th>Station</th>\n    <th>Freq</th>\n    <th>Mode</th>\n    <th>Running</th>\n</tr>\n<tbody>\n    <tr ng-repeat=\"row in msg.payload\" style=\"text-align:center\">\n        <td>{{row.OpCall}}</td>\n        <td>{{row.RadioName}}</td>\n        <td>{{row.StationName}}</td>\n        <td>{{row.Freq}}</td>\n        <td>{{row.Mode}}</td>\n        <td>{{row.IsRunning}}</td>\n    </tr>\n</tbody>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1120,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb0f49ec97fc3830",
+        "type": "debug",
+        "z": "9688e29600bc170f",
+        "name": "Display radios debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 660,
+        "wires": []
     },
     {
         "id": "59c86845bd2a1000",
