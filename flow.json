@@ -698,13 +698,14 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
+        "x": 170,
         "y": 300,
         "wires": [
             [
                 "8bbaa53e6a81c840",
                 "de16ef2602814fc8",
-                "9d23acd0acac4dd9"
+                "9d23acd0acac4dd9",
+                "0aaed5f4c3d735f6"
             ]
         ]
     },
@@ -770,29 +771,12 @@
         "width": 0,
         "height": 0,
         "name": "Number of contacts",
-        "label": "QSO's ",
+        "label": "QSO's: ",
         "format": "{{payload[0][\"Count(*)\"]}}",
         "layout": "row-left",
         "className": "",
         "x": 1110,
         "y": 240,
-        "wires": []
-    },
-    {
-        "id": "aec0a48b22cdb993",
-        "type": "ui_text",
-        "z": "9688e29600bc170f",
-        "group": "6e27ac53741afeb6",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "Claimed score",
-        "label": "Claimed score",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 780,
-        "y": 480,
         "wires": []
     },
     {
@@ -838,7 +822,7 @@
         "type": "debug",
         "z": "9688e29600bc170f",
         "name": "Get contacts count debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -868,6 +852,58 @@
                 "8fe31cab6d564643"
             ]
         ]
+    },
+    {
+        "id": "0aaed5f4c3d735f6",
+        "type": "template",
+        "z": "9688e29600bc170f",
+        "name": "Get current score ",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT DISTINCT MAX(timestamp), score, call \nFROM scores\nGROUP BY call;",
+        "output": "str",
+        "x": 470,
+        "y": 440,
+        "wires": [
+            [
+                "da76626abebb676a"
+            ]
+        ]
+    },
+    {
+        "id": "da76626abebb676a",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get scores by call",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "87c76d2e5a9f9867"
+            ]
+        ]
+    },
+    {
+        "id": "87c76d2e5a9f9867",
+        "type": "debug",
+        "z": "9688e29600bc170f",
+        "name": "Get scores by call debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 500,
+        "wires": []
     },
     {
         "id": "59c86845bd2a1000",
