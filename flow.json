@@ -771,7 +771,7 @@
         "height": 0,
         "name": "Number of contacts",
         "label": "QSO's ",
-        "format": "{{msg.payload}}",
+        "format": "{{payload[0][\"Count(*)\"]}}",
         "layout": "row-left",
         "className": "",
         "x": 1110,
