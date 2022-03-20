@@ -859,7 +859,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "SELECT Count(*) from contacts;",
+        "template": "SELECT Count(*) from contacts AS count;",
         "output": "str",
         "x": 500,
         "y": 300,
