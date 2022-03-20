@@ -915,7 +915,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<table class=”table”>\n<tr><th>Scores</th></tr>\n<tbody>\n    <tr ng-repeat=\"row in msg.payload\">\n        <td>{{call}}</td>\n    </tr>\n</tbody>\n</table>",
+        "format": "<table class=”table”>\n<tr><th>Scores</th></tr>\n<tbody>\n    <tr ng-repeat=\"row in msg.payload\">\n        <td>{{row}}</td>\n    </tr>\n</tbody>\n</table>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
