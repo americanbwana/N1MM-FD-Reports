@@ -862,7 +862,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "SELECT DISTINCT MAX(timestamp), score, call \nFROM scores\nGROUP BY call;",
+        "template": "SELECT DISTINCT call, MAX(timestamp), score \nFROM scores\nGROUP BY call;",
         "output": "str",
         "x": 470,
         "y": 440,
@@ -904,6 +904,27 @@
         "x": 1130,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "55dd46444fa41695",
+        "type": "ui_template",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "name": "Display score by call",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<table class=”table”>\n<tr ng-repeat = “payload in msg.payload”>\n<td ng-repeat =”(key,value) in payload”>{{key}}: {{value}}</td></tr></table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "59c86845bd2a1000",
