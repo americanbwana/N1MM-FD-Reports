@@ -700,8 +700,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 300,
+        "x": 190,
+        "y": 640,
         "wires": [
             [
                 "de16ef2602814fc8",
@@ -719,8 +719,8 @@
         "sqlquery": "fixed",
         "sql": "",
         "name": "Get contacts info",
-        "x": 470,
-        "y": 680,
+        "x": 490,
+        "y": 1020,
         "wires": [
             [
                 "fa3e245c51eef63b"
@@ -740,8 +740,8 @@
         "format": "{{payload[0][\"Count(*)\"]}}",
         "layout": "row-left",
         "className": "",
-        "x": 1110,
-        "y": 240,
+        "x": 1150,
+        "y": 560,
         "wires": []
     },
     {
@@ -759,8 +759,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 810,
-        "y": 680,
+        "x": 830,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -773,8 +773,8 @@
         "sqlquery": "msg.topic",
         "sql": "SELECT Count(*) from contacts;",
         "name": "Get contacts count",
-        "x": 790,
-        "y": 300,
+        "x": 810,
+        "y": 640,
         "wires": [
             [
                 "7c2c99e5bf88842b",
@@ -795,8 +795,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 300,
+        "x": 1170,
+        "y": 640,
         "wires": []
     },
     {
@@ -810,8 +810,8 @@
         "syntax": "mustache",
         "template": "SELECT Count(*) from contacts AS count;",
         "output": "str",
-        "x": 500,
-        "y": 300,
+        "x": 520,
+        "y": 640,
         "wires": [
             [
                 "8fe31cab6d564643"
@@ -829,8 +829,8 @@
         "syntax": "mustache",
         "template": "SELECT DISTINCT call, MAX(timestamp), score \nFROM scores\nGROUP BY call;",
         "output": "str",
-        "x": 470,
-        "y": 440,
+        "x": 490,
+        "y": 780,
         "wires": [
             [
                 "da76626abebb676a"
@@ -845,8 +845,8 @@
         "sqlquery": "msg.topic",
         "sql": "",
         "name": "Get scores by call",
-        "x": 790,
-        "y": 440,
+        "x": 810,
+        "y": 780,
         "wires": [
             [
                 "87c76d2e5a9f9867",
@@ -867,8 +867,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1130,
-        "y": 500,
+        "x": 1150,
+        "y": 840,
         "wires": []
     },
     {
@@ -886,8 +886,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1140,
-        "y": 420,
+        "x": 1160,
+        "y": 760,
         "wires": [
             []
         ]
@@ -904,7 +904,7 @@
         "template": "SELECT * from radios ORDER BY OpCall;",
         "output": "str",
         "x": 470,
-        "y": 540,
+        "y": 880,
         "wires": [
             [
                 "af029b78a92d5688"
@@ -920,7 +920,7 @@
         "sql": "",
         "name": "Get Radios",
         "x": 790,
-        "y": 580,
+        "y": 900,
         "wires": [
             [
                 "01e0ba308213e070",
@@ -943,8 +943,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1120,
-        "y": 580,
+        "x": 1140,
+        "y": 920,
         "wires": [
             []
         ]
@@ -962,8 +962,78 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
-        "y": 660,
+        "x": 1160,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "cf84173d9443acd4",
+        "type": "template",
+        "z": "9688e29600bc170f",
+        "name": "Get claimed score template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT sum(results.score)\nFROM \n(SELECT score, max(timestamp) from scores GROUP BY call) as results;",
+        "output": "str",
+        "x": 520,
+        "y": 500,
+        "wires": [
+            [
+                "0c197e528b7f3a0a"
+            ]
+        ]
+    },
+    {
+        "id": "0c197e528b7f3a0a",
+        "type": "sqlite",
+        "z": "9688e29600bc170f",
+        "mydb": "8c6c30ddd10c4e52",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Get claimed score",
+        "x": 810,
+        "y": 500,
+        "wires": [
+            [
+                "7092e8b4ee53e4c7",
+                "4ddfad2a866f1545"
+            ]
+        ]
+    },
+    {
+        "id": "4ddfad2a866f1545",
+        "type": "debug",
+        "z": "9688e29600bc170f",
+        "name": "Get claimed score debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7092e8b4ee53e4c7",
+        "type": "ui_text",
+        "z": "9688e29600bc170f",
+        "group": "6e27ac53741afeb6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Display claimed score",
+        "label": "Claimed Score:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1160,
+        "y": 500,
         "wires": []
     },
     {
