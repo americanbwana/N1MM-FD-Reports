@@ -737,7 +737,7 @@
         "wires": [
             [
                 "aec0a48b22cdb993",
-                "8fe31cab6d564643"
+                "9d23acd0acac4dd9"
             ]
         ]
     },
@@ -791,7 +791,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 1030,
+        "x": 1290,
         "y": 220,
         "wires": []
     },
@@ -838,10 +838,10 @@
         "type": "sqlite",
         "z": "9688e29600bc170f",
         "mydb": "8c6c30ddd10c4e52",
-        "sqlquery": "fixed",
+        "sqlquery": "msg.topic",
         "sql": "SELECT Count(*) from contacts;",
         "name": "Get contacts count",
-        "x": 750,
+        "x": 1010,
         "y": 280,
         "wires": [
             [
@@ -863,9 +863,28 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
+        "x": 1310,
         "y": 300,
         "wires": []
+    },
+    {
+        "id": "9d23acd0acac4dd9",
+        "type": "template",
+        "z": "9688e29600bc170f",
+        "name": "Get contact count template",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT Count(*) from contacts;",
+        "output": "str",
+        "x": 780,
+        "y": 280,
+        "wires": [
+            [
+                "8fe31cab6d564643"
+            ]
+        ]
     },
     {
         "id": "59c86845bd2a1000",
